@@ -4,15 +4,24 @@ const router = express.Router()
 
 // obter dados
 router.get('/', (requisicao, resposta) => {
-    resposta.send('Site Trampo top do Brasil!!!')
+    Categoria.findAll({
+        /*where: {
+            id: 1
+        }*/
+    })
+    .then((dados) => {
+        resposta.send(dados)
+    })
+    .catch((erro) => {
+        console.log(erro)
+        resposta.send('Lasco')
+    })
 })
 
 // inserir dados
 router.post('/', (requisicao, resposta) => {
    
-    let objSalvar = {
-        nome: 'Santana'
-    }
+    let objSalvar = requisicao.body
 
     Categoria.create(objSalvar)
     .then(() => {
@@ -24,6 +33,36 @@ router.post('/', (requisicao, resposta) => {
     })
 })
 
+// alterar
+router.put('/', (requisicao, resposta) => {
+    let objSalvar = {
+        nome: 'CR7'
+    }
+
+    Categoria.update(objSalvar, {
+        where: {id: 4}
+    })
+        .then(() => {
+            resposta.send('Atualizado com sucesso!')
+        })
+        .catch((erro) => {
+            console.log(erro)
+            resposta.send('Deu erro :/')
+        })
+})
+
+router.delete('/', (request, response) => {
+    Categoria.destroy({
+        where: {id: 8}
+    })
+    .then(() => {
+        response.send('Deletado com sucesso')
+    })
+    .catch((erro) => {
+        console.log(erro)
+        response.send('Erro ao excluir')
+    })
+})
 
 // exporta o arquivo
 module.exports = router
