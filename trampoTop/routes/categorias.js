@@ -9,9 +9,20 @@ router.get('/', (requisicao, resposta) => {
             id: 1
         }*/
     })
+    /*
     .then((dados) => {
         resposta.send(dados)
-    })
+    })*/
+   .then((bancoDeDados) => {
+        let objTeste = {
+            dados: bancoDeDados,
+            titulo: 'Lista de Categorias'
+        }
+        resposta.render('index',
+            objTeste
+           )
+   })
+
     .catch((erro) => {
         console.log(erro)
         resposta.send('Lasco')
