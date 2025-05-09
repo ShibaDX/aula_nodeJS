@@ -1,0 +1,144 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Si3B",
+    "collectionId": "380cac01-1183-440e-b07a-2490410a43ae",
+    "dateExported": "2025-04-04T23:40:41.729Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "584b33b0-bf2a-4b6c-9c32-1f306cf29a69",
+            "name": "trampoTop",
+            "containerId": "",
+            "created": "2025-03-21T01:03:01.726Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "366b0c5f-c9e9-4fbe-8b51-e1ab24e95f44",
+            "name": "categorias",
+            "containerId": "584b33b0-bf2a-4b6c-9c32-1f306cf29a69",
+            "created": "2025-03-21T01:04:23.956Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "6ab90881-ff0c-47c4-bb1b-b9f337bdf319",
+            "name": "pessoas",
+            "containerId": "584b33b0-bf2a-4b6c-9c32-1f306cf29a69",
+            "created": "2025-04-04T22:29:23.194Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "aa06ebc8-0676-4549-9942-cb170a602e56",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "366b0c5f-c9e9-4fbe-8b51-e1ab24e95f44",
+            "name": "buscar",
+            "url": "http://localhost:3001/categorias",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-03-21T01:05:21.990Z",
+            "modified": "2025-03-21T01:06:37.757Z",
+            "headers": []
+        },
+        {
+            "_id": "ed6ca619-581e-453e-95a2-3c0f633f0c70",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "366b0c5f-c9e9-4fbe-8b51-e1ab24e95f44",
+            "name": "inserir",
+            "url": "http://localhost:3001/categorias",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-03-21T01:07:30.904Z",
+            "modified": "2025-03-21T01:09:06.933Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Memphis Depay\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d12032e9-284f-4fee-a968-d70d5c9e644b",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "366b0c5f-c9e9-4fbe-8b51-e1ab24e95f44",
+            "name": "alterar",
+            "url": "http://localhost:3001/categorias",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-03-21T01:07:59.470Z",
+            "modified": "2025-03-21T01:12:14.249Z",
+            "headers": []
+        },
+        {
+            "_id": "54694e78-509b-4514-871d-87f7e73a7861",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "366b0c5f-c9e9-4fbe-8b51-e1ab24e95f44",
+            "name": "excluir",
+            "url": "http://localhost:3001/categorias",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-03-21T01:13:41.187Z",
+            "modified": "2025-03-21T01:14:06.001Z",
+            "headers": []
+        },
+        {
+            "_id": "2cf97ec4-7596-4c12-a69f-564498978087",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "6ab90881-ff0c-47c4-bb1b-b9f337bdf319",
+            "name": "exibir",
+            "url": "http://localhost:3001/pessoas",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2025-04-04T22:29:42.000Z",
+            "modified": "2025-04-04T22:30:10.341Z",
+            "headers": []
+        },
+        {
+            "_id": "f5b521f3-7981-4726-a895-f5ba436b1356",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "6ab90881-ff0c-47c4-bb1b-b9f337bdf319",
+            "name": "inserir",
+            "url": "http://localhost:3001/pessoas",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2025-04-04T22:29:47.338Z",
+            "modified": "2025-04-04T22:33:30.440Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Memphis Depay\",\n  \"email\": \"mem@gmail.com\",\n  \"telefone\": \"2314124\",\n  \"endereco\": \"Rua ABC, 123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2454e772-43bc-48b0-8a7f-5ddbb8b31d71",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "6ab90881-ff0c-47c4-bb1b-b9f337bdf319",
+            "name": "alterar",
+            "url": "http://localhost:3001/pessoas/4",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2025-04-04T22:29:52.424Z",
+            "modified": "2025-04-04T23:29:48.566Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"RODRIGO GARRO\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b465c427-fb0a-468e-a1ea-af099b4fdc6a",
+            "colId": "380cac01-1183-440e-b07a-2490410a43ae",
+            "containerId": "6ab90881-ff0c-47c4-bb1b-b9f337bdf319",
+            "name": "deletar",
+            "url": "http://localhost:3001/pessoas/7",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2025-04-04T22:29:56.384Z",
+            "modified": "2025-04-04T23:30:50.213Z",
+            "headers": []
+        }
+    ],
+    "ref": "zoCNuUDJaL6Eai73fa48qu4pLRZvemxpU35mDS29pwU_q9bWpQZ7BlW7mbWsawTGXRlD2puHBxU-AqEIWCHhjA"
+}

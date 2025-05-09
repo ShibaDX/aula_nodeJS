@@ -24,7 +24,7 @@ db.authenticate()
     })
 
 // muda URL para = http://localhost:3001/categorias
-//app.use('/categorias', require('./routes/categorias'))
+app.use('/categorias', require('./routes/categorias'))
 app.use('/pessoas', require('./routes/pessoas'))
 
 app.listen(PORT, () => {
