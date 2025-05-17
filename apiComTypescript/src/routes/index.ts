@@ -1,10 +1,12 @@
 import {Router} from 'express'
 
 import categoria from './categorias'
+import usuario from './usuarios'
 
-const routes = Router
+const routes = Router()
 
-routes.arguments('/categorias', categoria)
+routes.use('/categorias', categoria)
+routes.use('/usuarios', usuario)
 
 
 export default routes
