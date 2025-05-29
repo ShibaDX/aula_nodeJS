@@ -1,5 +1,7 @@
 import {Router} from 'express'
 import knex from './../database/knex'
+import { z } from 'zod'
+import { hash } from 'bcrypt'
 
 const router = Router()
 
@@ -11,9 +13,24 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    knex('usuarios').insert(req.body)
-    .then(() => {
-        res.json({mensagem: 'Cadastrou um novo usuario!'})
+const registerBodySchema = z.object({
+    nome: z.string(),
+    email: z.string().email(),
+    senha: z.string().min(6)
+})
+
+const objSalvar = registerBodySchema.parse(
+    req.body
+)
+
+objSalvar.senha = hash(objSalvar.senha, 8)
+
+    knex('usuarios').insert(objSalvar)
+    .then((resposta) => {
+        res.json({
+            mensagem: 'Cadastrou um novo usuario!',
+            usuario: resposta
+        })
     })
 })
 
