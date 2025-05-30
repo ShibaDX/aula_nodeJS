@@ -39,6 +39,45 @@ router.post('/', async (req, res) => {
 
 })
 
+router.put('/:id', async (req, res) => {
+
+    const updateBodySchema = z.object({
+        nome: z.string().optional(),
+        email: z.string().email().optional(),
+        senha: z.string().min(6).optional()
+    })
+
+    const objAlterar = updateBodySchema.parse(
+        req.body
+    )
+
+    if (objAlterar.senha) {
+        objAlterar.senha = await hash(objAlterar.senha, 8)
+    }
+
+    const { id } = req.params
+
+    await knex('usuarios').where({ id }).update(objAlterar)
+
+    const usuarios = await knex('usuarios').where({ id })
+
+    res.json({
+        message: 'Usuario alterado com sucesso',
+        usuario: usuarios
+    })
+})
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params
+
+    await knex('usuarios')
+        .where({ id })
+        .del()
+
+    res.json({
+        mensagem: 'deletado'
+    })
+})
 
 
 export default router
