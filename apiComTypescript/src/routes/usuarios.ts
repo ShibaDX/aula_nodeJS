@@ -47,9 +47,7 @@ router.put('/:id', async (req, res) => {
         senha: z.string().min(6).optional()
     })
 
-    const objAlterar = updateBodySchema.parse(
-        req.body
-    )
+    const objAlterar = updateBodySchema.parse(req.body)
 
     if (objAlterar.senha) {
         objAlterar.senha = await hash(objAlterar.senha, 8)
@@ -70,14 +68,14 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const { id } = req.params
 
-    await knex('usuarios')
-        .where({ id })
-        .del()
+    await knex('usuarios').where({ id }).del()
 
     res.json({
-        mensagem: 'deletado'
+        message: 'Usuario deletado com sucesso'
     })
 })
+
+
 
 
 export default router
