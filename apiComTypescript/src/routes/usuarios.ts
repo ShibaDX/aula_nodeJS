@@ -41,6 +41,12 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
 
+    const registerParamsSchema = z.object({
+        id: z.string().min(1)
+    })
+    // + transforma o string em num
+    const id = +registerParamsSchema.parse(req.params).id
+
     const updateBodySchema = z.object({
         nome: z.string().optional(),
         email: z.string().email().optional(),
@@ -53,16 +59,13 @@ router.put('/:id', async (req, res) => {
         objAlterar.senha = await hash(objAlterar.senha, 8)
     }
 
-    const { id } = req.params
-
-    await knex('usuarios').where({ id }).update(objAlterar)
-
-    const usuarios = await knex('usuarios').where({ id })
+    const usuarios = await knex('usuarios').where({ id }).update(objAlterar)
 
     res.json({
         message: 'Usuario alterado com sucesso',
         usuario: usuarios
     })
+
 })
 
 router.delete('/:id', async (req, res) => {
